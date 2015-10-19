@@ -49,7 +49,7 @@ Elixir.extend('stylus', function(src, output, baseDir, options) {
  * Prep the Gulp src and output paths.
  *
  * @param  {string|array} src
- * @param {string|null} basrDir
+ * @param  {string|null}  baseDir
  * @param  {string|null}  output
  * @return {object}
  */
