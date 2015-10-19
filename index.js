@@ -17,7 +17,7 @@ var config = Elixir.config;
  |
  */
 
-Elixir.extend('stylus', function(src, output, baseDir, options) {
+Elixir.extend('stylus', function(src, output, options) {
     config.css.stylus = {
         folder: 'stylus',
 
@@ -27,7 +27,7 @@ Elixir.extend('stylus', function(src, output, baseDir, options) {
             ]
         }
     };
-    var paths = prepGulpPaths(src, baseDir, output);
+    var paths = prepGulpPaths(src, output);
 
     new Elixir.Task('stylus', function() {
 
@@ -40,8 +40,7 @@ Elixir.extend('stylus', function(src, output, baseDir, options) {
             pluginOptions: options || config.css.stylus.pluginOptions
         });
     })
-    .watch(paths.src.baseDir + '/**/*.styl')
-    .ignore(paths.output.path);
+    .watch(paths.src.baseDir + '/**/*.styl');
 });
 
 
@@ -49,12 +48,11 @@ Elixir.extend('stylus', function(src, output, baseDir, options) {
  * Prep the Gulp src and output paths.
  *
  * @param  {string|array} src
- * @param {string|null} basrDir
  * @param  {string|null}  output
  * @return {object}
  */
-var prepGulpPaths = function(src, baseDir, output) {
+var prepGulpPaths = function(src, output) {
     return new Elixir.GulpPaths()
-        .src(src, baseDir || config.get('assets.css.stylus.folder'))
+        .src(src, config.get('assets.css.stylus.folder'))
         .output(output || config.get('public.css.outputFolder'), 'app.css');
 };

@@ -45,7 +45,7 @@ mix.stylus('app.styl', './public/scripts/styles.css')
 ...this will set the path where your `app.styl` is located, if it is not in the default directory `resources/assets`
 
 ```js
-mix.stylus('app.styl', null, 'path/to/stylus/file')
+mix.stylus('./path/to/file/from/root')
 ```
 
 Finally, if you want to override the Stylus plugin options, you may pass an object as the third argument.
