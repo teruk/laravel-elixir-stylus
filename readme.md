@@ -42,10 +42,16 @@ If you'd like to set a different output directory, you may pass a second argumen
 mix.stylus('app.styl', './public/scripts/styles.css')
 ```
 
+...this will set the path where your `app.styl` is located, if it is not in the default directory `resources/assets`
+
+```js
+mix.stylus('app.styl', null, 'path/to/stylus/file')
+```
+
 Finally, if you want to override the Stylus plugin options, you may pass an object as the third argument.
 
 ```js
-mix.stylus('app.styl', null, {});
+mix.stylus('app.styl', null, null, {});
 
 // See options at: https://www.npmjs.com/package/gulp-stylus#options
 ```
